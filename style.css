@@ -1,0 +1,80 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+body {
+  background-image: url(./img/bg.jpg);
+  background-repeat: repeat;
+  font-family: sans-serif;
+  color: #311a12;
+}
+.main-btn {
+  font-size: large;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px 10px;
+  text-align: center;
+  min-width: 100px;
+}
+input {
+  max-width: 100px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.col {
+  width: 100%;
+  margin-right: 30px;
+}
+.price {
+  background-color: #db92b2;
+  padding: 10px 20px;
+}
+.layer {
+  transition: 0.5s;
+}
+.layer-biscuit {
+  background-image: url(./img/biscuit.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.layer-beze {
+  background-image: url(./img/beze.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.layer-curd {
+  background-image: url(./img/curd.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.total {
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  th, td {
+   
+  }
+}

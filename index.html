@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
+	<title>Cake</title>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div id="myCake">
+			<h2>Кастомний торт</h2>
+			<hr>
+			<button class="main-btn" type="button" @click="addLayer">
+				Додати шар
+			</button>
+			<span>Регулюйте висоту шару простим кликом правої/лівої кнопки миші.</span>
+			<hr>
+			<div class="row">
+				<div class="col">
+					<div class="cake">
+						<div class="layer" :class="'layer-'+layer.type" :style="{height: layer.height*10+'px'}"
+							v-for='(layer, i) in layers' @click="changeHeight(i, 1)" @contextmenu.prevent="changeHeight(i, -1)"></div>
+					</div>
+				</div>
+
+				<div>
+					<table>
+						<tr>
+							<th>Тип</th>
+							<th>Висота, см</th>
+							<th>Дія</th>
+						</tr>
+
+						<tr v-for='(layer, i) in layers'>
+							<td>
+								<select v-model="layers[i].type">
+									<option :value="key" v-for="(lt, key) in layersTypes">
+										{{lt.label}}
+									</option>
+								</select>
+							</td>
+							<td>
+								<input type="text" v-model.number="layers[i].height">
+							</td>
+							<td>
+								<button type="button" @click="deleteLayer(i)">
+									-
+								</button>
+							</td>
+						</tr>
+
+					</table>
+				</div>
+			</div>
+			<hr>
+			<div class="price">
+				<span>Вартість торту: <span class="total">{{total}}</span> грн</span>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<script src="vue.js"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>
